@@ -19,9 +19,3 @@ For camera use, allow browser camera access over HTTPS or localhost. Mouse, touc
 ## Code and attribution
 
 Python examples are in `python/` and `take-home-code/`. Preserve vendor license notices, photo provenance in `references/photo-bank-provenance.json`, and video source/license links in the take-home pages. Bundled pretrained models are third-party inference assets; the symbol CNN is trained locally in the browser.
-
-## Validation and deployment
-
-Run `python check_local_links.py` and `python scripts/build_site.py`. The latter creates an allow-checked `_site/` artifact without tests, build tools or instructor material. GitHub Actions deploys that artifact to Pages on pushes to main.
-
-The club source and Pages artifact contain participant material only. Private presenter walkthroughs and instructor review notes are not included.
