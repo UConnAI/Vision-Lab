@@ -1,0 +1,30 @@
+# Local environments and generated artifacts
+__pycache__/
+*.py[cod]
+.python-deps/
+.pip-cache/
+.venv/
+venv/
+node_modules/
+.build/
+tmp/
+.tmp/
+outputs/
+exports/
+recordings/
+*.zip
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+# Local QA screenshots and historical review notes
+/*.png
+OVERNIGHT-REVIEW.md
+VERIFICATION.md
+# Optional original raw download; runnable samples are bundled separately
+/take-home-football-tracker/assets/source.webm
+
+_site/

@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>Full-window simulation rehearsal</title><script>
+(async()=>{
+ Element.prototype.requestFullscreen=undefined;
+ const html=await(await fetch('../index.html')).text();
+ document.open();document.write(html.replace('<head>','<head><base href="../">').replace('<div class="screenControls">','<div class="screenControls"><p>TEST: native fullscreen disabled to verify the full-window fallback with artificial simulation.</p>'));document.close();
+})();
+</script>

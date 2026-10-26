@@ -1,0 +1,269 @@
+.lecturePage .bpv{border:2px solid #9fcac5;border-radius:15px;padding:22px;background:#f7fbfa;margin:24px 0;color:#19373a}.lecturePage .bpv *{box-sizing:border-box}.lecturePage .bpvIntro h3{font-size:clamp(23px,3vw,31px);margin:8px 0}.lecturePage .bpvIntro p{font-size:15px}.lecturePage .bpvEyebrow,.lecturePage #bpvStep{font-size:12px;font-weight:800;letter-spacing:.12em;color:#087e80}.lecturePage .bpvControls{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0}.lecturePage .bpvControls button{padding:11px 15px;font-size:15px}.lecturePage #bpvPlay{background:#087e80;color:white}.lecturePage .bpvControls label{display:flex;gap:8px;align-items:center;font-size:14px;margin:0}.lecturePage .bpvControls input[type=range]{width:120px}.lecturePage .bpvControls output{min-width:40px}.lecturePage .bpvProgress{display:flex;gap:14px;align-items:center;font-size:14px;font-weight:bold}.lecturePage .bpvProgress progress{accent-color:#087e80;flex:1;min-width:0;height:12px}.lecturePage .bpvDirection{font-size:13px;font-weight:800;letter-spacing:.03em;margin:20px 0 12px;padding:12px;border-radius:6px;background:#dff1ea}.lecturePage .bpvDirection.backward{background:#fff0e4;color:#953f0b}.lecturePage .bpvDirection.update{background:#e3e9ff;color:#344a93}.lecturePage .bpvNetworkScroll{max-width:100%;overflow:auto;padding:4px 2px 10px}.lecturePage .bpvNetwork{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px;min-width:830px;align-items:stretch}.lecturePage .bpvNode{position:relative;border:2px solid #cedfda;background:white;border-radius:9px;padding:10px 8px;min-width:0;transition:border-color .2s,background-color .2s}.lecturePage .bpvNode h4{font-size:15px;margin:0 0 8px}.lecturePage .bpvSymbol{font:12px/1.4 Consolas,monospace;min-height:36px;overflow-wrap:anywhere}.lecturePage .bpvValues{min-height:110px;padding-top:10px}.lecturePage .bpvCells{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:3px}.lecturePage .bpvCells span{padding:5px 2px;text-align:center;border-radius:4px;font:12px/1.3 Consolas,monospace;overflow-wrap:anywhere}.lecturePage .bpvCells .activation{background:rgba(8,126,128,var(--strength));color:#143e3f}.lecturePage .bpvCells .positive{background:rgba(225,113,26,var(--strength))}.lecturePage .bpvCells .negative{background:rgba(38,107,204,var(--strength))}.lecturePage .bpvCells .zero{background:#edf0ef}.lecturePage .bpv .positive{color:#984009}.lecturePage .bpv .negative{color:#2454a0}.lecturePage .bpv .zero{color:#536663}.lecturePage .bpvGradient{border-top:1px dashed #b3c6c1;padding-top:10px;margin-top:10px}.lecturePage .bpvGradient b{font-size:12px;display:block;min-height:34px;overflow-wrap:anywhere}.lecturePage .bpvGradient strong{font-size:13px}.lecturePage .bpvWaiting{font-size:12px;color:#637b75}.lecturePage .bpvProb{font-size:12px;display:block;margin:0 0 7px}.lecturePage .bpvProb meter{display:block;width:100%;height:18px}.lecturePage .bpvLoss{font-size:22px;display:block;overflow-wrap:anywhere}.lecturePage .bpvValues p{font-size:12px}.lecturePage .bpvNode.isActive{border-color:#087e80;background:#eaf8f2;box-shadow:0 0 0 3px #087e801a}.lecturePage .isBackward .bpvNode.isActive{border-color:#dc7b34;background:#fff4e9;box-shadow:0 0 0 3px #dc7b3420}.lecturePage .bpvNode.isUpdated{border-color:#667cb2}.lecturePage .bpvEdge{position:absolute;right:-25px;top:65px;font-size:25px;line-height:1;color:#087e80;width:24px;text-align:center}.lecturePage .bpvEdge:before{content:'';position:absolute;height:4px;width:5px;top:11px;left:0;border-radius:50%;background:currentColor;opacity:0}.lecturePage .bpvEdge.edgeBack{color:#be5b1e}.lecturePage .isMoving .bpvEdge:before{opacity:1;animation:bpv-forward .9s linear infinite}.lecturePage .isMoving .bpvEdge.edgeBack:before{animation-name:bpv-backward}.lecturePage .bpvLegend{font-size:12px;line-height:1.5!important;margin:12px 0 20px}.lecturePage .bpvLegend span{font-weight:bold}.lecturePage .bpvStory{padding:20px;background:white;border-left:5px solid #087e80;min-height:225px;border-radius:5px}.lecturePage .bpvStory h4{font-size:23px;margin:8px 0}.lecturePage .bpvStory p{font-size:16px}.lecturePage .bpvFormula{font:15px/1.7 Consolas,monospace;overflow-wrap:anywhere;background:#f0f6f4;padding:12px}.lecturePage .bpvWeights{margin-top:20px}.lecturePage .bpvWeightHeader{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.lecturePage .bpvWeightHeader h4{font-size:22px}.lecturePage .bpvWeightHeader label{display:flex;align-items:center;gap:10px;margin:0}.lecturePage .bpvWeightFocus{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:12px}.lecturePage .bpvWeightFocus>div{border:1px solid #c8d9d3;padding:16px;background:white;border-radius:9px}.lecturePage .bpvWeightFocus span,.lecturePage .bpvWeightFocus strong{display:block}.lecturePage .bpvWeightFocus span{font-size:13px}.lecturePage .bpvWeightFocus strong{font-size:clamp(18px,2vw,26px);margin:7px 0;overflow-wrap:anywhere}.lecturePage .bpvContributions{background:white;padding:15px;font:14px/1.6 Consolas,monospace;margin-top:12px;overflow-wrap:anywhere}.lecturePage .bpvContributions p{font:14px/1.5 Arial,sans-serif}.lecturePage .bpvTableScroll{overflow:auto;max-width:100%}.lecturePage .bpvWeights table{font-size:14px;white-space:nowrap;width:100%}.lecturePage .bpvWeights td,.lecturePage .bpvWeights th{padding:7px}.lecturePage .bpvWeights td{font-variant-numeric:tabular-nums}.lecturePage .bpvWeights th button{font-size:13px;padding:6px}.lecturePage .bpvWeights tr.isSelected{background:#dceee8}.lecturePage .bpvFeedback{margin-top:22px;border:2px solid #7589bf;border-radius:10px;padding:20px;background:#f1f4ff}.lecturePage .bpvFeedback h4{margin-top:0;font-size:22px}.lecturePage .bpvCompare{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;gap:12px}.lecturePage .bpvCompare span,.lecturePage .bpvCompare strong{display:block}.lecturePage .bpvCompare strong{font-size:21px;margin:8px 0}.lecturePage .bpvCompare p{font-size:14px}.lecturePage .bpvLoopArrow{font-size:38px;text-align:center;color:#536ba7}.lecturePage .bpvMotionNote{font-size:12px;margin-bottom:0}.lecturePage .bpv [hidden]{display:none!important}@keyframes bpv-forward{from{transform:translateX(0)}to{transform:translateX(19px)}}@keyframes bpv-backward{from{transform:translateX(19px)}to{transform:translateX(0)}}@media(prefers-reduced-motion:reduce){.lecturePage .bpv *{animation:none!important;transition:none!important}}@media(max-width:650px){.lecturePage .bpv{padding:13px}.lecturePage .bpvWeightFocus{grid-template-columns:1fr}.lecturePage .bpvWeightFocus>div{padding:12px}.lecturePage .bpvStory{padding:15px;min-height:260px}.lecturePage .bpvCompare{grid-template-columns:1fr}.lecturePage .bpvLoopArrow{transform:rotate(90deg)}.lecturePage .bpvProgress{flex-wrap:wrap}.lecturePage .bpvProgress progress{flex-basis:100%}}@media print{.lecturePage .bpvControls{display:none}.lecturePage .bpvNetwork{min-width:0;gap:10px}.lecturePage .bpvEdge{display:none}}
+.lecturePage .bpvNode{min-height:350px}
+.lecturePage .bpvUses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.lecturePage .bpvUses>div{padding:12px 8px;background:#f0f6f4;border-radius:6px}.lecturePage .bpvUses b,.lecturePage .bpvUses span,.lecturePage .bpvUses strong{display:block;margin:5px 0;overflow-wrap:anywhere}@media(max-width:650px){.lecturePage .bpvUses{grid-template-columns:1fr 1fr}}
+
+/* The same live panel enters a modal: no duplicate model or playback state. */
+.lecturePage .bpvViewControls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.lecturePage .bpvViewControls button{font-size:14px;padding:9px 13px}
+.lecturePage #bpvLarge{background:#e2e9ff;border-color:#8fa2d0}
+.lecturePage .bpvViewStatus{font-size:12px;margin:4px 0;color:#526a68}
+.lecturePage .bpvDialog{position:fixed;inset:10px;width:calc(100% - 20px);height:calc(100dvh - 20px);max-width:none;max-height:none;margin:auto;padding:0;border:0;border-radius:12px;background:#f7fbfa;color:#19373a;overflow:hidden}
+.lecturePage .bpvDialog::backdrop{background:#102d35dc}
+.lecturePage .bpv.bpvPresenting{display:flex;flex-direction:column;width:100%;height:100%;min-height:0;margin:0;padding:14px 18px;border:0;border-radius:0;overflow:hidden;background:#f7fbfa}
+.lecturePage .bpvPresenting .bpvIntro{position:relative;padding-right:250px;min-height:36px;flex-shrink:0}
+.lecturePage .bpvPresenting .bpvIntro h3{font-size:22px;margin:2px 0;line-height:1.3}
+.lecturePage .bpvPresenting .bpvIntro>p,.lecturePage .bpvPresenting .bpvEyebrow,.lecturePage .bpvPresenting .bpvMotionNote{display:none}
+.lecturePage .bpvPresenting .bpvViewControls{position:absolute;top:0;right:0;margin:0}
+.lecturePage .bpvPresenting .bpvControls{margin:8px 0;gap:8px;flex-shrink:0}
+.lecturePage .bpvPresenting .bpvControls button{font-size:16px;padding:9px 14px}
+.lecturePage .bpvPresenting .bpvProgress{font-size:13px;flex-shrink:0}
+.lecturePage .bpvPresenting .bpvPresenterBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding-right:3px}
+.lecturePage .bpvPresenting .bpvDirection{font-size:14px;margin:8px 0;padding:9px 12px}
+.lecturePage .bpvPresenting .bpvNetwork{min-width:900px;gap:28px}
+.lecturePage .bpvPresenting .bpvNetworkScroll{padding:4px 2px 6px}
+.lecturePage .bpvPresenting .bpvNode{padding:10px;min-height:258px}
+.lecturePage .bpvPresenting .bpvNode h4{font-size:18px;margin:0 0 7px}
+.lecturePage .bpvPresenting .bpvSymbol{font-size:13px;min-height:36px}
+.lecturePage .bpvPresenting .bpvValues{min-height:80px;padding-top:4px}
+.lecturePage .bpvPresenting .bpvCells{gap:4px}
+.lecturePage .bpvPresenting .bpvCells span{font-size:18px;line-height:1.3;padding:5px 2px;white-space:nowrap}
+.lecturePage .bpvPresenting .bpvGradient{margin-top:8px;padding-top:8px}
+.lecturePage .bpvPresenting .bpvGradient b{font-size:15px;min-height:24px}
+.lecturePage .bpvPresenting .bpvGradient strong{font-size:17px}
+.lecturePage .bpvPresenting .bpvProb{font-size:15px}
+.lecturePage .bpvPresenting .bpvLoss{font-size:29px}
+.lecturePage .bpvPresenting .bpvValues p{font-size:14px;margin:6px 0}
+.lecturePage .bpvPresenting .bpvEdge{font-size:31px;right:-29px;top:68px;width:28px}
+.lecturePage .bpvPresenting .bpvEdge:before{height:6px;width:7px;top:13px}
+.lecturePage .bpvPresenting .bpvLegend{font-size:12px;line-height:1.35!important;max-height:34px;overflow:auto;margin:8px 0 10px}
+.lecturePage .bpvPresenting .bpvPresenterAside{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+.lecturePage .bpvPresenting .bpvStory{min-height:0;max-height:195px;overflow:auto;margin:0;padding:13px 16px}
+.lecturePage .bpvPresenting .bpvStory h4{font-size:23px;margin:6px 0}
+.lecturePage .bpvPresenting .bpvStory p{font-size:15px;line-height:1.45;margin:6px 0}
+.lecturePage .bpvPresenting .bpvFormula{font-size:16px;padding:8px;line-height:1.5}
+.lecturePage .bpvPresenting .bpvWeights{margin:0;max-height:235px;overflow:auto;padding-right:3px}
+.lecturePage .bpvPresenting .bpvWeightHeader{margin:0 0 8px}
+.lecturePage .bpvPresenting .bpvWeightHeader h4{font-size:21px;margin:0}
+.lecturePage .bpvPresenting .bpvWeightHeader label{font-size:15px}
+.lecturePage .bpvPresenting .bpvWeightHeader select{padding:6px 8px;margin:0}
+.lecturePage .bpvPresenting .bpvWeightFocus{gap:8px}
+.lecturePage .bpvPresenting .bpvWeightFocus>div{padding:10px}
+.lecturePage .bpvPresenting .bpvWeightFocus span{font-size:13px}
+.lecturePage .bpvPresenting .bpvWeightFocus strong{font-size:clamp(23px,2.1vw,34px);margin:5px 0}
+.lecturePage .bpvPresenting .bpvContributions{margin-top:10px;padding:10px}
+.lecturePage .bpvPresenting .bpvUses{gap:6px;margin:8px 0}
+.lecturePage .bpvPresenting .bpvUses>div{padding:8px 5px}
+.lecturePage .bpvPresenting .bpvFeedback{grid-column:1/-1;margin:0;padding:14px}
+.lecturePage .bpvPresenting .bpvStory:only-child{grid-column:1/-1}
+.lecturePage .bpvPresenting:fullscreen{width:100vw;height:100dvh;padding:18px 24px}
+@media(min-width:1600px) and (min-height:850px){
+ .lecturePage .bpvPresenting .bpvNode{min-height:330px;padding:15px}
+ .lecturePage .bpvPresenting .bpvNode h4{font-size:23px}
+ .lecturePage .bpvPresenting .bpvSymbol{font-size:17px;min-height:45px}
+ .lecturePage .bpvPresenting .bpvCells span{font-size:24px;padding:8px 3px}
+ .lecturePage .bpvPresenting .bpvGradient b{font-size:20px;min-height:32px}
+ .lecturePage .bpvPresenting .bpvProb{font-size:20px}
+ .lecturePage .bpvPresenting .bpvLoss{font-size:38px}
+ .lecturePage .bpvPresenting .bpvStory,.lecturePage .bpvPresenting .bpvWeights{max-height:300px}
+ .lecturePage .bpvPresenting .bpvStory p,.lecturePage .bpvPresenting .bpvFormula{font-size:20px}
+ .lecturePage .bpvPresenting .bpvWeightFocus strong{font-size:38px}
+}
+@media(max-width:850px){
+ .lecturePage .bpvPresenting .bpvIntro{padding-right:0}
+ .lecturePage .bpvPresenting .bpvViewControls{position:static;margin:0 0 8px}
+ .lecturePage .bpvPresenting .bpvIntro h3{font-size:20px}
+ .lecturePage .bpvPresenting .bpvPresenterAside{grid-template-columns:1fr}
+ .lecturePage .bpvPresenting .bpvStory,.lecturePage .bpvPresenting .bpvWeights{max-height:none}
+ .lecturePage .bpvPresenting .bpvWeightFocus{grid-template-columns:1fr 1fr 1fr}
+ .lecturePage .bpvPresenting .bpvWeightFocus strong{font-size:22px}
+}
+@media(min-width:851px) and (max-height:800px){
+ .lecturePage .bpv.bpvPresenting{padding:10px 14px}
+ .lecturePage .bpvPresenting .bpvIntro{min-height:32px}
+ .lecturePage .bpvPresenting .bpvIntro h3{font-size:20px}
+ .lecturePage .bpvPresenting .bpvControls{margin:5px 0}
+ .lecturePage .bpvPresenting .bpvControls button{font-size:15px;padding:7px 12px}
+ .lecturePage .bpvPresenting .bpvViewControls button{padding:7px 11px}
+ .lecturePage .bpvPresenting .bpvViewStatus{font-size:11px;margin:2px 0}
+ .lecturePage .bpvPresenting .bpvDirection{font-size:13px;padding:6px 10px;margin:5px 0}
+ .lecturePage .bpvPresenting .bpvNode{height:268px;min-height:268px;padding:8px}
+ .lecturePage .bpvPresenting .bpvNode h4{font-size:17px;line-height:1.2;margin:0 0 5px}
+ .lecturePage .bpvPresenting .bpvSymbol{font-size:12px;line-height:1.25;min-height:30px}
+ .lecturePage .bpvPresenting .bpvValues{min-height:64px;padding-top:2px}
+ .lecturePage .bpvPresenting .bpvCells span{font-size:18px;line-height:1.2;padding:3px 2px}
+ .lecturePage .bpvPresenting .bpvNode:first-child .bpvCells span{font-size:14px;line-height:1.3;padding:1px 2px}
+ .lecturePage .bpvPresenting .bpvGradient{margin-top:6px;padding-top:6px}
+ .lecturePage .bpvPresenting .bpvGradient b{font-size:14px;min-height:20px}
+ .lecturePage .bpvPresenting .bpvLegend{max-height:27px;margin:5px 0 8px;font-size:11px}
+ .lecturePage .bpvPresenting .bpvStory{display:flex;flex-direction:column;max-height:185px;padding:10px 13px}
+ .lecturePage .bpvPresenting #bpvStep{order:0}
+ .lecturePage .bpvPresenting .bpvStory h4{order:1;font-size:21px;line-height:1.2;margin:4px 0 7px}
+ .lecturePage .bpvPresenting .bpvFormula{order:2;font-size:15px;flex-shrink:0;padding:7px 9px}
+ .lecturePage .bpvPresenting .bpvStory p{order:3;font-size:13px}
+ .lecturePage .bpvPresenting .bpvWeights{max-height:185px}
+ .lecturePage .bpvPresenting .bpvWeightHeader{margin-bottom:5px}
+ .lecturePage .bpvPresenting .bpvWeightHeader h4{font-size:19px}
+ .lecturePage .bpvPresenting .bpvWeightFocus>div{padding:8px}
+ .lecturePage .bpvPresenting .bpvWeightFocus strong{font-size:25px}
+}
+@media print{.lecturePage .bpvViewControls{display:none}.lecturePage .bpvDialog{display:none!important}}
+
+.lecturePage .mathNotation{font-family:"Cambria Math","STIX Two Math",serif;font-size:1em;vertical-align:middle;margin:0 .08em;white-space:nowrap}
+.lecturePage .bpvGradient b{display:flex;align-items:center;flex-wrap:wrap;gap:4px;line-height:1.2;min-height:38px}
+.lecturePage .bpvFormula .mathNotation{font-size:1.08em}
+.lecturePage .bpvWeightFocus>div>span:first-child{display:flex;align-items:center;gap:5px;min-height:38px}
+.lecturePage .bpvContributions>strong .mathNotation{margin:0 5px}
+@media(min-width:851px) and (max-height:800px){
+ .lecturePage .bpvPresenting .bpvGradient b{min-height:34px}
+ .lecturePage .bpvPresenting .bpvValues{min-height:56px}
+ .lecturePage .bpvPresenting .bpvGradient{margin-top:4px;padding-top:4px}
+ .lecturePage .bpvPresenting .bpvCells span{padding-top:2px;padding-bottom:2px}
+ .lecturePage .bpvPresenting .bpvNode:first-child .bpvGradient .bpvCells span{font-size:13px;line-height:1.2;padding-top:0;padding-bottom:0}
+ .lecturePage .bpvPresenting .bpvWeightFocus>div>span:first-child{min-height:34px}
+}
+
+/* Projector typography stays large even on a short screen. Pan or focus the
+   calculation instead of reducing the equation and gradient text. */
+.lecturePage .bpv.bpvPresenting{--bpvProjectorScale:1;padding:16px 22px}
+.lecturePage .bpvPresenting .bpvIntro{min-height:40px}
+.lecturePage .bpvPresenting .bpvIntro h3{font-size:26px;line-height:1.2}
+.lecturePage .bpvPresenting .bpvViewControls button,.lecturePage .bpvPresenting .bpvControls button{font-size:17px;padding:9px 14px}
+.lecturePage .bpvPresenting .bpvControls{gap:10px 14px;margin:8px 0}
+.lecturePage .bpvPresenting .bpvControls label{font-size:16px}
+.lecturePage .bpvPresenting #bpvTextSize{width:100px}
+.lecturePage .bpvPresenting #bpvTextSizeValue{min-width:48px;font-weight:bold}
+.lecturePage .bpvPresenting #bpvFocus{background:#e2e9ff;border-color:#8fa2d0;font-weight:bold}
+.lecturePage .bpvPresenting .bpvProgress{font-size:16px}
+.lecturePage .bpvPresenting .bpvViewStatus{font-size:14px;margin:5px 0}
+.lecturePage .bpvPresenting .bpvDirection{font-size:19px;padding:10px 14px;margin:8px 0}
+.lecturePage .bpvPresenting .bpvNetworkScroll{scrollbar-gutter:stable;padding:5px 2px 10px}
+.lecturePage .bpvPresenting .bpvNetwork{min-width:calc(1260px * var(--bpvProjectorScale));gap:30px}
+.lecturePage .bpvPresenting .bpvNode{height:auto;min-height:calc(440px * var(--bpvProjectorScale));padding:12px}
+.lecturePage .bpvPresenting .bpvNode h4{font-size:calc(25px * var(--bpvProjectorScale));line-height:1.2;margin:0 0 10px}
+.lecturePage .bpvPresenting .bpvSymbol{font-size:calc(21px * var(--bpvProjectorScale));line-height:1.3;min-height:54px}
+.lecturePage .bpvPresenting .bpvValues{min-height:108px;padding-top:6px}
+.lecturePage .bpvPresenting .bpvValues .bpvCells span{font-size:calc(30px * var(--bpvProjectorScale));line-height:1.2;padding:6px 3px}
+.lecturePage .bpvPresenting .bpvNode:first-child .bpvValues .bpvCells span{font-size:calc(26px * var(--bpvProjectorScale));line-height:1.2;padding:4px 2px}
+.lecturePage .bpvPresenting .bpvGradient{margin-top:12px;padding-top:12px}
+.lecturePage .bpvPresenting .bpvGradient b{font-size:calc(28px * var(--bpvProjectorScale));min-height:66px;line-height:1.2;gap:6px}
+.lecturePage .bpvPresenting .bpvGradient .mathNotation{font-size:calc(28px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvGradient .bpvCells span,.lecturePage .bpvPresenting .bpvNode:first-child .bpvGradient .bpvCells span{font-size:calc(36px * var(--bpvProjectorScale));line-height:1.2;padding:5px 3px}
+.lecturePage .bpvPresenting .bpvProb{font-size:calc(23px * var(--bpvProjectorScale));margin-bottom:10px}
+.lecturePage .bpvPresenting .bpvProb meter{height:24px}
+.lecturePage .bpvPresenting .bpvLoss{font-size:calc(46px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvValues p,.lecturePage .bpvPresenting .bpvWaiting{font-size:calc(20px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvEdge{font-size:43px;right:-31px;width:30px;top:100px}
+.lecturePage .bpvPresenting .bpvEdge:before{height:8px;width:9px;top:18px}
+.lecturePage .bpvPresenting .bpvLegend{font-size:16px;line-height:1.4!important;max-height:48px;margin:10px 0 14px}
+.lecturePage .bpvPresenting .bpvPresenterAside{gap:20px;align-items:start}
+.lecturePage .bpvPresenting .bpvStory{display:flex;flex-direction:column;min-height:0;max-height:none;overflow:visible;padding:18px 22px}
+.lecturePage .bpvPresenting #bpvStep{order:0;font-size:16px}
+.lecturePage .bpvPresenting .bpvStory h4{order:1;font-size:calc(28px * var(--bpvProjectorScale));line-height:1.2;margin:8px 0 12px}
+.lecturePage .bpvPresenting .bpvStory p{order:3;font-size:calc(21px * var(--bpvProjectorScale));line-height:1.5}
+.lecturePage .bpvPresenting .bpvFormula{order:2;font-size:calc(30px * var(--bpvProjectorScale));line-height:1.6;padding:15px;flex-shrink:0}
+.lecturePage .bpvPresenting .bpvFormula .mathNotation{font-size:1em}
+.lecturePage .bpvPresenting .bpvWeights{max-height:none;overflow:visible;padding:0}
+.lecturePage .bpvPresenting .bpvWeightHeader{gap:10px;margin-bottom:12px}
+.lecturePage .bpvPresenting .bpvWeightHeader h4{font-size:27px}
+.lecturePage .bpvPresenting .bpvWeightHeader label{font-size:19px}
+.lecturePage .bpvPresenting .bpvWeightHeader select{font-size:20px;padding:9px 12px}
+.lecturePage .bpvPresenting .bpvWeightFocus{gap:12px}
+.lecturePage .bpvPresenting .bpvWeightFocus>div{padding:14px}
+.lecturePage .bpvPresenting .bpvWeightFocus>div>span:first-child{min-height:68px;font-size:calc(20px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvWeightGradientLabel .mathNotation{font-size:calc(28px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvWeightFocus span{font-size:calc(20px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvWeightFocus strong{font-size:calc(48px * var(--bpvProjectorScale));line-height:1.15;margin:10px 0;white-space:nowrap}
+.lecturePage .bpvPresenting .bpvContributions{font-size:calc(23px * var(--bpvProjectorScale));line-height:1.5;padding:18px;margin-top:15px}
+.lecturePage .bpvPresenting .bpvContributions p{font-size:calc(20px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvUses{gap:10px}
+.lecturePage .bpvPresenting .bpvUses>div{padding:10px}
+.lecturePage .bpvPresenting .bpvWeights details>summary{font-size:21px}
+.lecturePage .bpvPresenting .bpvWeights table{font-size:22px}
+.lecturePage .bpvPresenting .bpvWeights table button{font-size:20px}
+.lecturePage .bpvPresenting .bpvFeedback{font-size:21px}
+.lecturePage .bpvPresenting .bpvCompare strong{font-size:calc(35px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvCompare p{font-size:21px}
+.lecturePage .bpvPresenting .bpvPresenterAside:has(.bpvWeights[hidden]) .bpvStory{grid-column:1/-1}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvPresenterNetwork{display:none}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvPresenterAside{padding-top:12px;grid-template-columns:1fr}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvFormula{font-size:calc(36px * var(--bpvProjectorScale));line-height:1.65}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvWeightFocus strong{font-size:calc(58px * var(--bpvProjectorScale))}
+@media(max-width:1400px){
+ .lecturePage .bpvPresenting .bpvPresenterAside{grid-template-columns:1fr}
+ .lecturePage .bpvPresenting.bpvCalculationFocus .bpvFormula{font-size:calc(34px * var(--bpvProjectorScale))}
+ .lecturePage .bpvPresenting.bpvCalculationFocus .bpvWeightFocus strong{font-size:calc(54px * var(--bpvProjectorScale))}
+ .lecturePage .bpvPresenting.bpvExtraLarge .bpvWeightFocus{grid-template-columns:1fr}
+}
+.lecturePage .bpvPresenting .bpvPanHint{font-size:15px;line-height:1.4;flex-shrink:0;margin:4px 0;padding:6px 10px;border-left:3px solid #8fa2d0;background:#eef2ff}
+.lecturePage .bpvPresenting .bpvNetwork{grid-template-columns:repeat(6,minmax(calc(235px * var(--bpvProjectorScale)),1fr));min-width:calc(1410px * var(--bpvProjectorScale) + 150px)}
+.lecturePage .bpvPresenting .bpvLoss{white-space:nowrap;overflow-wrap:normal}
+.lecturePage .bpvPresenting .bpvCells span{white-space:nowrap;overflow-wrap:normal}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvStory p{display:none}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvStory h4{font-size:24px;line-height:1.2;margin:6px 0 10px}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvStory{padding:12px 16px}
+.lecturePage .bpvPresenting.bpvCalculationFocus .bpvWeightFocus{grid-template-columns:repeat(3,minmax(max-content,1fr))}
+@media(max-width:1400px){.lecturePage .bpvPresenting.bpvCalculationFocus.bpvExtraLarge .bpvWeightFocus{grid-template-columns:1fr}}
+
+/* Kernel parameters stay outside the scrolling diagram in presentation mode. */
+.lecturePage .bpvKernelReference{position:sticky;top:0;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(90px,.55fr);align-items:center;gap:12px 22px;flex-shrink:0;padding:12px 16px;margin:12px 0;background:#edf7f3;border:1px solid #91bdb5;border-radius:10px;box-shadow:0 2px 6px #173b4310}
+.lecturePage .bpvKernelHeading strong{display:block;font-size:19px;line-height:1.3;color:#075e63}
+.lecturePage .bpvKernelHeading span{display:block;font-size:14px;line-height:1.4;margin-top:5px;max-width:420px}
+.lecturePage .bpvKernelMatrix{width:auto;margin:0;border-collapse:separate;border-spacing:4px;table-layout:fixed}
+.lecturePage .bpvKernelMatrix td{font:600 21px/1.15 Consolas,monospace;min-width:100px;padding:5px 10px;text-align:center;white-space:nowrap;background:white;color:#173b43;border:1px solid #b7d9cf;border-radius:5px;font-variant-numeric:tabular-nums}
+.lecturePage .bpvKernelBias{font-size:16px;line-height:1.3;color:#075e63}
+.lecturePage .bpvKernelBias strong{display:block;font:600 22px/1.3 Consolas,monospace;color:#173b43;margin-top:4px;white-space:nowrap}
+.lecturePage .bpvOutputLabel{display:block;font-size:13px;line-height:1.3;margin:0 0 6px;color:#365e63}
+.lecturePage .bpvPresenting .bpvKernelReference{position:relative;top:auto;margin:6px 0 10px;padding:8px 14px;flex-shrink:0}
+.lecturePage .bpvPresenting .bpvKernelHeading strong{font-size:calc(20px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvKernelHeading span{font-size:15px}
+.lecturePage .bpvPresenting .bpvKernelMatrix td{font-size:calc(23px * var(--bpvProjectorScale));min-width:116px;padding:4px 10px}
+.lecturePage .bpvPresenting .bpvKernelBias strong{font-size:calc(25px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvOutputLabel{font-size:calc(19px * var(--bpvProjectorScale))}
+@media(max-width:650px){.lecturePage .bpvKernelReference{grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;padding:9px}.lecturePage .bpvKernelBias{grid-column:1/-1;display:flex;align-items:center;gap:12px}.lecturePage .bpvKernelBias strong{margin:0}.lecturePage .bpvKernelHeading strong{font-size:16px}.lecturePage .bpvKernelHeading span{font-size:12px}.lecturePage .bpvKernelMatrix td{font-size:17px;min-width:78px;padding:4px}.lecturePage .bpvPresenting .bpvKernelMatrix td{font-size:calc(19px * var(--bpvProjectorScale));min-width:90px;padding:4px}}
+@media print{.lecturePage .bpvKernelReference{position:static;box-shadow:none;break-inside:avoid}}
+
+/* The same persistent reference includes both classifier rows and cA/cB. */
+.lecturePage .bpvKernelReference{grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr);gap:12px 20px}
+.lecturePage .bpvKernelBlock{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-width:0}
+.lecturePage .bpvKernelHeading .bpvKernelBias{display:flex;align-items:baseline;gap:9px;margin-top:7px;font-size:15px}
+.lecturePage .bpvKernelHeading .bpvKernelBias strong{display:inline;margin:0;font-size:22px;line-height:1.2}
+.lecturePage .bpvDenseBlock{min-width:0}
+.lecturePage .bpvDenseHeading{display:block;font-size:18px;line-height:1.3;color:#075e63;margin-bottom:3px}
+.lecturePage .bpvDenseTableWrap{overflow-x:auto;max-width:100%}
+.lecturePage .bpvDenseMatrix{width:100%;margin:0;border-collapse:separate;border-spacing:3px;font-variant-numeric:tabular-nums}
+.lecturePage .bpvDenseMatrix th{font-size:13px;text-align:center;white-space:nowrap;padding:2px 4px;background:transparent;border:0;color:#365e63}
+.lecturePage .bpvDenseMatrix tbody th{font-weight:700;color:#075e63}
+.lecturePage .bpvDenseMatrix td{font:600 18px/1.2 Consolas,monospace;text-align:center;white-space:nowrap;padding:5px;background:white;border:1px solid #b7d9cf;border-radius:5px;color:#173b43}
+.lecturePage .bpvDenseMatrix .bpvClassBias{background:#e3f0fa;border-color:#aac5df}
+.lecturePage .bpvPresenting .bpvDenseHeading{font-size:calc(18px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvDenseMatrix th{font-size:calc(14px * var(--bpvProjectorScale))}
+.lecturePage .bpvPresenting .bpvDenseMatrix td{font-size:calc(22px * var(--bpvProjectorScale));padding:4px 6px}
+.lecturePage .bpvPresenting.bpvWideParameters .bpvKernelReference{grid-template-columns:1fr;gap:6px}
+.lecturePage .bpvPresenting.bpvWideParameters .bpvKernelBlock{grid-template-columns:minmax(0,1fr) auto}
+.lecturePage .bpvPresenting.bpvWideParameters .bpvKernelHeading .bpvKernelBias strong{font-size:calc(23px * var(--bpvProjectorScale))}
+@media(max-width:1100px){.lecturePage .bpvKernelReference{grid-template-columns:1fr;gap:8px}.lecturePage .bpvKernelBlock{grid-template-columns:minmax(0,1fr) auto}}
+@media(max-width:650px){.lecturePage .bpvDenseHeading{font-size:15px}.lecturePage .bpvDenseMatrix td{font-size:16px;padding:4px}.lecturePage .bpvDenseMatrix th{font-size:12px}.lecturePage .bpvKernelHeading .bpvKernelBias{grid-column:auto}}
+
+.lecturePage .bpvPresenting .bpvKernelHeading strong{font-size:calc(18px * var(--bpvProjectorScale))}
+
+/* Keep each numerical derivation readable at projector scale. */
+.lecturePage .bpvEquationLine{padding:8px 0;overflow-x:auto;overflow-wrap:normal}
+.lecturePage .bpvEquationLine + .bpvEquationLine{border-top:1px solid #c9ddd8}
+.lecturePage .bpvSoftmaxStable{margin-top:12px;font-family:Arial,sans-serif}
+.lecturePage .bpvSoftmaxStable summary{cursor:pointer;font-size:.7em;font-weight:bold}
+.lecturePage .bpvSoftmaxStable .bpvEquationLine{font-family:Consolas,monospace}
+
+.lecturePage .bpvFeatureVector{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:stretch;margin-top:8px}
+.lecturePage .bpvFeatureIndices{display:grid;grid-template-rows:repeat(4,1fr);font:14px Consolas,monospace;color:#526b70}
+.lecturePage .bpvFeatureIndices>span{display:flex;align-items:center;justify-content:center}
+.lecturePage .bpvColumnVector{border-left:2px solid #52777b;border-right:2px solid #52777b;padding:3px 7px;margin:0}
+.lecturePage .bpvPresenting .bpvFeatureIndices{font-size:calc(17px * var(--bpvProjectorScale))}
+
+/* Consistent blocks; text identifies the choices used in this example. */
+.lecturePage .bpvNetwork>.bpvNode{background:#f7fafb;border-color:#c6d9dd}
+.lecturePage .bpvNetwork>.bpvNode.isActive{background:#eaf8f2;border-color:#087e80;box-shadow:0 0 0 3px #087e8026}
+.lecturePage .bpvNetwork.isBackward>.bpvNode.isActive{border-color:#be5b1e;box-shadow:0 0 0 3px #be5b1e26}
+.lecturePage .bpvNetwork>.bpvNode.isUpdated{border-color:#7586b2}
+.lecturePage .bpvDesignChoice{font:600 12px/1.4 Arial,sans-serif;color:#526b70;border-left:3px solid #b4ccce;padding-left:7px;margin:0 0 10px}
+.lecturePage .bpvDesignChoice span{font-weight:400}
+.lecturePage .bpvPresenting .bpvDesignChoice{font-size:calc(13px * var(--bpvProjectorScale))}

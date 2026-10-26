@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>Camera stop rehearsal with artificial stream</title><script>
+(async()=>{
+ const canvas=document.createElement('canvas');canvas.width=640;canvas.height=480;canvas.getContext('2d').fillRect(0,0,640,480);
+ let artificialStream=null;
+ setInterval(()=>{canvas.getContext('2d').fillRect(0,0,640,480);},100);
+ Object.defineProperty(navigator,'mediaDevices',{configurable:true,value:{getUserMedia:async()=>{await new Promise(r=>setTimeout(r,1500));artificialStream=canvas.captureStream(10);return artificialStream;},enumerateDevices:async()=>[]}});
+ const html=await(await fetch('../index.html')).text();
+ document.open();document.write(html.replace('<head>','<head><base href="../">').replace('<main>','<main><p id="testStatus" role="status">TEST ONLY: camera is an artificial canvas stream; no physical camera requested.</p>'));document.close();
+ setInterval(()=>{const status=document.getElementById('testStatus');if(status)status.textContent='TEST ONLY: artificial camera stream / track: '+(artificialStream?.getTracks()[0]?.readyState||'not acquired')+' / video attached: '+!!document.getElementById('video')?.srcObject;},100);
+})();
+</script>

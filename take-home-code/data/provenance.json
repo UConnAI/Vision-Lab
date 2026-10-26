@@ -1,0 +1,63 @@
+{
+  "schema": {
+    "Frame": "Zero-based decoded video frame index",
+    "Visibility": "1=position supplied; 0=missing/absent estimate",
+    "X": "Horizontal pixel coordinate in original video",
+    "Y": "Vertical pixel coordinate in original video",
+    "Source": "Coordinate-generation method; not a truth label"
+  },
+  "soccer": {
+    "video": "../../take-home-football-tracker/assets/single-ball.mp4",
+    "sha256": "3d3dcf74138781f5885cd39c0ccf6a393c1b0b4cc33958e911801c9004726b6b",
+    "fps": 24,
+    "frames": 179,
+    "positions": "soccer.csv",
+    "method": "Actual sampled CNN detections from the separate local demo; existing pointAt() maps the measured sample trajectory onto each original video frame. Source explicitly distinguishes sample/interpolation/brief hold.",
+    "sourceMeasurements": "soccer-source-measurements.json",
+    "groundTruth": false
+  },
+  "pingpong": {
+    "video": "../../take-home-football-tracker/assets/ping-pong.mp4",
+    "sha256": "c6db59368e51e8d6ede78d681cf81930c13143ef6a722fd29e8d1a8aab363b24",
+    "fps": 24,
+    "frames": 158,
+    "positions": "ping-pong.csv",
+    "method": "measure_orange_ball.py processes each decoded frame with color and component-shape rules; missing estimates remain Visibility=0. No interpolation and no CNN in this coordinate generator.",
+    "groundTruth": false
+  },
+  "mediaCredits": "../../take-home-football-tracker/ATTRIBUTION.md",
+  "note": "The four rows in schema-example.csv are invented schema illustrations only; they are not positions for either sample video.",
+  "basketball": {
+    "video": "../../take-home-football-tracker/assets/basketball-long.mp4",
+    "sha256": "3a7587eca26cb30b1e7713bfae018fe1e01ae66ad12eb8896b73e28031d5c2b8",
+    "fps": 24,
+    "frames": 424,
+    "positions": "basketball.csv",
+    "method": "Actual MobileNetV1+SSD samples with CNN-seeded appearance measurements; pointAt maps adjacent valid samples onto original video frames. Missing samples break the path. Sources explicitly distinguish interpolation and measured points.",
+    "sourceMeasurements": "basketball-source-measurements.json",
+    "groundTruth": false,
+    "availablePositionFrames": 86,
+    "cnnSamples": 5,
+    "appearanceSamples": 64,
+    "missingSamples": 109,
+    "sourceUrl": "https://mixkit.co/free-stock-video/basketball-player-dribbling-ball-744/"
+  },
+  "juggling": {
+    "video": "../../take-home-football-tracker/assets/soccer-juggling.mp4",
+    "sha256": "aa8b172240fe3236735e5c4951660ec1f7b6613308402583255c2854538e4841",
+    "fps": 24,
+    "frames": 346,
+    "positions": "juggling.csv",
+    "method": "Actual MobileNetV1+SSD detections and CNN-seeded color measurements from 146 samples; pointAt maps valid neighboring measurements onto each original video frame, without crossing missing samples.",
+    "sourceMeasurements": "juggling-source-measurements.json",
+    "groundTruth": false,
+    "availablePositionFrames": 297,
+    "sampleCounts": {
+      "cnn": 85,
+      "appearance": 48,
+      "missing": 13,
+      "total": 146
+    },
+    "sourceUrl": "https://mixkit.co/free-stock-video/skilled-footballer-demonstrating-ball-juggling-prowess-43491/"
+  }
+}

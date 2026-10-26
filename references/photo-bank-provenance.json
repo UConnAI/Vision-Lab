@@ -1,0 +1,68 @@
+{
+  "photos": [
+    {
+      "id": "astronaut",
+      "asset": "assets/photos/astronaut.png",
+      "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+      "credit_and_license": "NASA / public domain",
+      "documentation": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5"
+    },
+    {
+      "id": "hopper",
+      "asset": "assets/photos/grace-hopper.jpg",
+      "download": "https://raw.githubusercontent.com/matplotlib/matplotlib/v3.10.7/lib/matplotlib/mpl-data/sample_data/grace_hopper.jpg",
+      "credit_and_license": "James S. Davis / U.S. Navy / public domain",
+      "documentation": "https://commons.wikimedia.org/wiki/File:Grace_Hopper.jpg",
+      "sha256": "a8ca6d734765703b09728ab47fe59f473d93ae3967fc24c7c0288c3c7adb7130"
+    },
+    {
+      "id": "cat",
+      "asset": "assets/photos/chelsea.png",
+      "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/chelsea.png",
+      "credit_and_license": "Stefan van der Walt / CC0",
+      "documentation": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.cat",
+      "sha256": "596aa1e7cb875eb79f437e310381d26b338a81c2da23439704a73c4651e8c4bb"
+    },
+    {
+      "id": "camera",
+      "asset": "assets/photos/camera.png",
+      "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/camera.png",
+      "credit_and_license": "Lav Varshney / CC0",
+      "documentation": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.camera",
+      "sha256": "b0793d2adda0fa6ae899c03989482bff9a42d3d5690fc7e3648f2795d730c23a"
+    },
+    {
+      "id": "coffee",
+      "asset": "assets/photos/coffee.png",
+      "download": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/coffee.png",
+      "credit_and_license": "Rachel Michetti / CC0",
+      "documentation": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.coffee",
+      "sha256": "cc02f8ca188b167c775a7101b5d767d1e71792cf762c33d6fa15a4599b5a8de7"
+    }
+  ],
+  "reference_regions": "Current pixel-lab rectangles are rescaled from the manually selected photo-bank regions and used only for final result checking. Inspection patch positions are explicit display guides and do not enter inference. No learning is performed for the active 4x4 exercise.",
+  "challenge_crops": "The active exercise explicitly displays averaged face crops: Collins 24x21, Hopper 24x15 and cat 28x15. Search covers every complete 4x4 patch of the displayed crop, with no additional eye-location mask.",
+  "single_filter_derivative": {
+    "asset": "assets/eye-lab.json",
+    "sha256": "ff10db773f19ab5adbc57721355f8c9e4da479f41dcec413c9d42507a90437fe",
+    "builder": "scripts/build_single_eye_filters.py",
+    "seed": 314,
+    "method": "Same-photo normalized-patch LinearSVC with hard-negative mining; one quantized 17x13 coefficient array per portrait. Coffee reuses Collins. No browser training. Exact deterministic grayscale pixels included.",
+    "build_versions": {
+      "Pillow": "11.3.0",
+      "numpy": "2.3.3",
+      "scikit-learn": "1.7.2"
+    },
+    "evaluation_scope": "Prepared-photo classroom fixtures, not held-out or unseen-image detector accuracy.",
+    "status": "Preserved inactive 17x13 development artifact; not loaded by the current participant page."
+  },
+  "pixel_filter_derivative": {
+    "asset": "assets/eye-pixel-lab.json",
+    "sha256": "498155e2e8c0ea486e52390abb0fc7ac7f8de253ab1a692571c7a64755b0ee4f",
+    "builder": "scripts/build_pixel_eye_lab.py",
+    "method": "Pillow grayscale crop and BOX averaging; explicit hand-designed 4x4 -1/+1 kernels, no fitting.",
+    "inspection_guides": "Provided display patch centers, independent of full-crop inference.",
+    "evaluation_scope": "Constrained same-view classroom pattern exercise, not general eye detection accuracy."
+  }
+}

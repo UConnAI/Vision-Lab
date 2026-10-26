@@ -1,0 +1,33 @@
+/* Scoped to later-tab guides; the completed opening page does not load this file. */
+.learningGuide { margin: 1.5rem 0 2rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid #a3cfcb; border-left: 5px solid #087e80; border-radius: 16px; background: #f4faf8; color: #173c42; line-height: 1.65; overflow-wrap: anywhere; }
+.learningGuide .guideEyebrow { font-size: .78rem; font-weight: 750; letter-spacing: .08em; color: #246266; margin-top: 0; }
+.learningGuide h2 { font-size: clamp(1.35rem, 3vw, 1.8rem); margin: .25rem 0 .7rem; }
+.learningGuide h3 { font-size: 1.2rem; margin: 0 0 .65rem; }
+.learningGuide p { max-width: 85ch; }
+.learningGuide details { margin: .8rem 0; border: 1px solid #c5dcd7; border-radius: 8px; padding: .7rem 1rem; background: #fff; }
+.learningGuide summary { cursor: pointer; font-weight: 650; }
+.learningGuide dl { margin: 1rem 0; }
+.learningGuide dt { font-weight: 750; margin-top: .9rem; }
+.learningGuide dd { margin: .2rem 0 .6rem; max-width: 85ch; }
+.learningGuide .guideControls { display: flex; flex-wrap: wrap; gap: .65rem; align-items: end; margin: 1rem 0; }
+.learningGuide label { display: block; font-weight: 650; }
+.learningGuide select { display: block; max-width: 100%; margin-top: .3rem; }
+.learningGuide button, .learningGuide select { font: inherit; font-size: .95rem; min-height: 44px; padding: .5rem .8rem; border: 1px solid #8eaaa8; border-radius: 7px; background: white; color: #173c42; }
+.learningGuide button { cursor: pointer; }
+.learningGuide button:disabled { cursor: default; opacity: .5; }
+.learningGuide :focus-visible { outline: 3px solid #7549bc; outline-offset: 3px; }
+.learningGuide .guideProgress, .learningGuide .guideStorage { font-size: .88rem; color: #365c62; }
+.learningGuide .guideStep { padding: 1.2rem; border-radius: 10px; background: white; border: 1px solid #c5dcd7; }
+.learningGuide .guideCheck { display: flex; align-items: center; gap: .65rem; margin-top: 1rem; }
+.learningGuide input[type=checkbox] { width: 20px; height: 20px; flex-shrink: 0; }
+.learningGuide input[type=radio] { width: 20px; height: 20px; flex-shrink: 0; }
+.learningGuide fieldset { min-width: 0; border: 0; margin: 1rem 0; padding: 0; }
+.learningGuide legend { font-weight: 650; }
+.learningGuide textarea { display: block; box-sizing: border-box; width: 100%; font: inherit; padding: .7rem; border: 1px solid #8eaaa8; border-radius: 6px; resize: vertical; }
+.learningGuide a { color: #075e65; text-decoration: underline; text-underline-offset: 3px; }
+.learningGuide .guideJump { display: inline-block; padding: .35rem 0; font-weight: 650; }
+.learningGuide [hidden] { display: none !important; }
+.guideReturn { font-size: .9rem; margin: .5rem 0 1rem; }
+.guideReturn a { color: #075e65; text-decoration: underline; text-underline-offset: 3px; }
+@media(max-width:600px) { .learningGuide .guideControls label { width: 100%; min-width: 0; } .learningGuide select { width: 100%; } .learningGuide .guideStep { padding: .85rem; } }
+@media print { .learningGuide button, .learningGuide .guideControls { display: none; } .learningGuide { break-inside: avoid; } }

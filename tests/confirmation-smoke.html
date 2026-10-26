@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><title>Manual labeling UI rehearsal</title><script>
+(async()=>{
+ if(new URLSearchParams(location.search).has('fullscreen'))Element.prototype.requestFullscreen=undefined;
+ const html=await(await fetch('../index.html')).text();
+ let app=await(await fetch('../app.mjs')).text();
+ app=app.replace(/from '(\.\/[^']+)'/g,(_,path)=>"from '"+new URL('../'+path,location.href).href+"'");
+ if(new URLSearchParams(location.search).has('partial'))app=app.replace('round.locked=true;round.lockTime=now;', 'round.locked=true;round.lockTime=now;samples=[{t:round.cutoff-50,v:[.3,.3,.3,.3]},{t:round.cutoff,v:[.7,.65,.31,.32]}];');
+ app=app.replace("if(source==='simulation')finish(pending.simLabel);else showLabels();",'showLabels();');
+ const rehearsal=html.replace('<head>','<head><base href="../">').replace('<main>','<main><p>TEST ONLY: artificial simulation with automatic label confirmation disabled, to rehearse the actual confirmation window. No camera requested.</p>').replace('<script type="module" src="app.mjs"></'+'script>','<script type="module">'+app+'</'+'script>');
+ document.open();document.write(rehearsal);document.close();
+})();
+</script>

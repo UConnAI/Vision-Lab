@@ -1,0 +1,17 @@
+{
+  "source": "User-provided notebook retained in convolution-notebook-source.json",
+  "cell": 27,
+  "originalAsset": "face.jpg preview, not full-resolution face.jpg",
+  "embeddedSize": [
+    59,
+    84
+  ],
+  "browserPortraitCrop": [
+    13,
+    11,
+    33,
+    48
+  ],
+  "sha256": "e5399ba134a5299cb6d4cd171680b2dcc07bef8aad88824d8ebe36e451a667ca",
+  "license": "No image-specific license supplied in the retained notebook; no public-domain claim is made."
+}

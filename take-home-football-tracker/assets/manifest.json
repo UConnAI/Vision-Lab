@@ -1,0 +1,244 @@
+[
+  {
+    "path": "vendor\\tf.min.js",
+    "url": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js",
+    "bytes": 1469843,
+    "sha256": "300dfae273d20b4046f46a06d735688f03675a807561e9bcb5f664eb2f3d2831"
+  },
+  {
+    "path": "vendor\\coco-ssd.min.js",
+    "url": "https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js",
+    "bytes": 9299,
+    "sha256": "8875b8c1bb57723990c9d6506226e0e51cd21b8b6943eb53201086096de52df5"
+  },
+  {
+    "path": "vendor\\model\\model.json",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/model.json",
+    "bytes": 436766,
+    "sha256": "219190a98d6940a7c4d63c38b27e1c4f9841088a829459093ef071f09e5ccb3c"
+  },
+  {
+    "path": "vendor\\model\\group1-shard1of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard1of17",
+    "bytes": 4194304,
+    "sha256": "48cb1f78d82d3cb5027227bf623ada3cb78522fd2cf433b5c9b0f7c44c9b89fb"
+  },
+  {
+    "path": "vendor\\model\\group1-shard2of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard2of17",
+    "bytes": 4194304,
+    "sha256": "4eaad24b1c94d37b17c9b7de2910f6c014f8702097747cb30ef13f9a9f77a474"
+  },
+  {
+    "path": "vendor\\model\\group1-shard3of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard3of17",
+    "bytes": 4194304,
+    "sha256": "a68e717805990ceda47dbf64bd7a68d39f06d7bb587f69e4bb84f8e5dd6c5740"
+  },
+  {
+    "path": "vendor\\model\\group1-shard4of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard4of17",
+    "bytes": 4194304,
+    "sha256": "5f41bb602e5954a79fa4007faa698fa0127fef7fca6f7e2d8b42ccd027b76e25"
+  },
+  {
+    "path": "vendor\\model\\group1-shard5of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard5of17",
+    "bytes": 4194304,
+    "sha256": "d3ff3e9127d3739155c31a196ad063fd36b234df7cd7427a0c64a6f216bedca3"
+  },
+  {
+    "path": "vendor\\model\\group1-shard6of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard6of17",
+    "bytes": 4194304,
+    "sha256": "e932f59296c708bdaa4180e7a184271a492e9eefd08096babbda0558fb20eac8"
+  },
+  {
+    "path": "vendor\\model\\group1-shard7of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard7of17",
+    "bytes": 4194304,
+    "sha256": "50798743a355a0c1903d5e67823711dfff4d239e8ea2eb9c8755fb4358f0bd92"
+  },
+  {
+    "path": "vendor\\model\\group1-shard8of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard8of17",
+    "bytes": 4194304,
+    "sha256": "585a9ac2b8d3446ffb5f3e9d30a313e600ebd1fbbf8fd9db0e29568699d4fb69"
+  },
+  {
+    "path": "vendor\\model\\group1-shard9of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard9of17",
+    "bytes": 4194304,
+    "sha256": "81ce5d6613e507a6a9fe1bf4c7ef3331347b1647d4d525b2d255362ac7ebac47"
+  },
+  {
+    "path": "vendor\\model\\group1-shard10of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard10of17",
+    "bytes": 4194304,
+    "sha256": "00708e5eb3618db0e2ae0016e9388f4a6a4e0204ef3ffde93b4b21f9d9b87e07"
+  },
+  {
+    "path": "vendor\\model\\group1-shard11of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard11of17",
+    "bytes": 4194304,
+    "sha256": "d536877af8ab67447466a4eaaaf367c92b5121cb9b1ab2debee48148fc112d05"
+  },
+  {
+    "path": "vendor\\model\\group1-shard12of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard12of17",
+    "bytes": 4194304,
+    "sha256": "05ee4d2d9097b8b1a2a5ad19b22fd58aae54ba5b9df78b5bc25619dfb3534c20"
+  },
+  {
+    "path": "vendor\\model\\group1-shard13of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard13of17",
+    "bytes": 4194304,
+    "sha256": "cf0129e048b54276ed8cbfdd1e9dbcb963d6d04464e081a12e2407bbdaaded2a"
+  },
+  {
+    "path": "vendor\\model\\group1-shard14of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard14of17",
+    "bytes": 4194304,
+    "sha256": "3bd70a2f2bb3ec92ee2bf43e1e5d2d4e3185d2c838ad7f8ea416d2803a71f98d"
+  },
+  {
+    "path": "vendor\\model\\group1-shard15of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard15of17",
+    "bytes": 4194304,
+    "sha256": "8daa30ac8d212298f3f6e51862a85faa0e81f0d62658e3b8da1abeb97d5e0b00"
+  },
+  {
+    "path": "vendor\\model\\group1-shard16of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard16of17",
+    "bytes": 4194304,
+    "sha256": "176838e8ebd4ba229b0174114413cf0131811c5a7c86edab256871be3b3ed488"
+  },
+  {
+    "path": "vendor\\model\\group1-shard17of17",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/group1-shard17of17",
+    "bytes": 225632,
+    "sha256": "996c59c8c58a24537cacf45eb61df0c6aed597f90a2efb89c57ba6c646b42fdd"
+  },
+  {
+    "path": "assets\\source.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Men_kicking_footballs.webm",
+    "bytes": 71180799,
+    "sha256": "302401d554bd70dfea1d30b74df855953c130c2dddbd060bb663053318624200"
+  },
+  {
+    "path": "assets/single-ball-source.mp4",
+    "url": "https://assets.mixkit.co/ty8ws5311k055l26by04uj2b175i",
+    "bytes": 2634059,
+    "sha256": "c933e5c69a0e5e203cc40e2f322a72494dad004d813061bc4ddf10dd3ce76156"
+  },
+  {
+    "path": "assets/single-ball.mp4",
+    "url": "derived: single-ball-source.mp4, resized to 960 px, audio removed",
+    "bytes": 465194,
+    "sha256": "3d3dcf74138781f5885cd39c0ccf6a393c1b0b4cc33958e911801c9004726b6b"
+  },
+  {
+    "path": "assets/football-10s.mp4",
+    "url": "derived: first 10 seconds of source.webm",
+    "bytes": 1710054,
+    "sha256": "7562757a45e70484959c7d247ac771afa78381e47a8892271cce0c794da2ed56"
+  },
+  {
+    "path": "vendor/APACHE-2.0.txt",
+    "url": "https://raw.githubusercontent.com/tensorflow/tfjs-models/master/LICENSE",
+    "bytes": 11357,
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  {
+    "path": "assets/ping-pong-source.mp4",
+    "url": "https://assets.mixkit.co/3umsqmmj2ogr6fhtycqwvs9esgyq",
+    "bytes": 2665943,
+    "sha256": "1ead26ce935bad861ad471adbedc20a2ae53dbbd07d4e59d273532468cdfd5af"
+  },
+  {
+    "path": "assets/ping-pong.mp4",
+    "url": "derived: resized ping-pong-source.mp4, audio removed",
+    "bytes": 283202,
+    "sha256": "c6db59368e51e8d6ede78d681cf81930c13143ef6a722fd29e8d1a8aab363b24"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard1of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard1of7",
+    "bytes": 4194304,
+    "sha256": "6c2a7fec57f97831ec5d32e988b2bd303c4f580b6628d8cc419d8a7be238f6a6"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard2of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard2of7",
+    "bytes": 4194304,
+    "sha256": "9d5792371afd3467037aa555f3d6b4d5e7619acd5976e81b82237dca1317b6fd"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard3of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard3of7",
+    "bytes": 4194304,
+    "sha256": "30861d0b260560a57d54ed3b5e9dd3e508e91107ebe442f31aaf651a18311946"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard4of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard4of7",
+    "bytes": 4194304,
+    "sha256": "8df0c87e249c54fc61f1bf918ab4c46b09fee8c3246d68adc1bfaac2ce4771ef"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard5of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard5of7",
+    "bytes": 4194304,
+    "sha256": "261e5a8733c962517bf43ac85535b015703bfa3bf7fa6e4d069a9f88eef45779"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard6of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard6of7",
+    "bytes": 4194304,
+    "sha256": "fc8491e1fdce1bbf02f0969f50e4aecb4540cbc0456519f2480e7098c2bcd1b3"
+  },
+  {
+    "path": "vendor/model-v1/group1-shard7of7",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/group1-shard7of7",
+    "bytes": 2098532,
+    "sha256": "82011d26634365d7da2a6dc123c9d54788bdf33f8678e90c87bef17cf2408afc"
+  },
+  {
+    "path": "vendor/model-v1/model.json",
+    "url": "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v1/model.json",
+    "bytes": 351431,
+    "sha256": "ef8f01b75ba71ddfe7039fdf1aad72bd95d0cadff395daee21a46d76b50c781a"
+  },
+  {
+    "path": "assets/basketball-long.mp4",
+    "url": "https://assets.mixkit.co/videos/744/744-720.mp4",
+    "bytes": 2741714,
+    "sha256": "3a7587eca26cb30b1e7713bfae018fe1e01ae66ad12eb8896b73e28031d5c2b8",
+    "license": "Mixkit Stock Video Free License",
+    "changes": "resized; audio removed; full duration retained"
+  },
+  {
+    "path": "assets/basketball-preview.jpg",
+    "url": "https://mixkit.co/free-stock-video/basketball-player-dribbling-ball-744/",
+    "bytes": 17361,
+    "sha256": "6455d078d6588320b21139e0f76de5ddddbda62e55585cfbd9a1a976cbbfa74f",
+    "license": "Mixkit Stock Video Free License",
+    "changes": "frame at 3s; resized"
+  },
+  {
+    "path": "assets/soccer-juggling.mp4",
+    "url": "https://assets.mixkit.co/videos/43491/43491-720.mp4",
+    "bytes": 3211797,
+    "sha256": "aa8b172240fe3236735e5c4951660ec1f7b6613308402583255c2854538e4841",
+    "license": "Mixkit Stock Video Free License",
+    "changes": "resized; audio removed; full duration retained"
+  },
+  {
+    "path": "assets/juggling-preview.jpg",
+    "url": "https://assets.mixkit.co/videos/43491/43491-720.mp4",
+    "bytes": 18212,
+    "sha256": "1d6aaf8245bad7693550e0797a5ace8d0c018524dfe9adfae105753761b38610",
+    "license": "Mixkit Stock Video Free License",
+    "changes": "frame at3seconds; resized"
+  }
+]

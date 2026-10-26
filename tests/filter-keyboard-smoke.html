@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Filter keyboard regression checks</title>
+<h1>Filter keyboard regression checks</h1><p id="status" role="status">Loading the actual Playground…</p><ol id="results"></ol>
+<p>These checks exercise focus retention and arrow handlers in the actual page. Physical Enter/Space and Tab navigation are also rehearsed separately. No camera, download or model is requested.</p>
+<script type="module">
+const frame=document.createElement('iframe');frame.title='Playground under test';frame.style.width='100%';frame.style.height='400px';
+const loaded=new Promise(resolve=>frame.addEventListener('load',resolve,{once:true}));frame.src='../explore.html';document.body.append(frame);await loaded;
+const doc=frame.contentDocument;let passed=0,failed=0;
+function check(name,condition){const li=document.createElement('li');condition?passed++:failed++;li.textContent=(condition?'PASS: ':'FAIL: ')+name;document.querySelector('#results').append(li);}
+function key(name,ctrlKey=false){doc.activeElement.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown',{key:name,ctrlKey,bubbles:true,cancelable:true}));}
+const index=()=>[...doc.querySelectorAll('#pixels button')].indexOf(doc.activeElement);
+doc.querySelector('#blank').click();doc.querySelector('#pixels button').focus();doc.activeElement.click();
+check('pixel activation retains focus on the replaced cell',index()===0&&doc.activeElement.getAttribute('aria-pressed')==='true');
+key('ArrowLeft');key('ArrowUp');check('top-left boundaries do not leave the grid',index()===0);
+key('ArrowRight');key('ArrowDown');check('arrow movement uses rows and columns',index()===9);
+key('End');check('End reaches the current row end',index()===15);
+key('Home');check('Home reaches the current row start',index()===8);
+key('End',true);key('ArrowRight');key('ArrowDown');check('last-cell boundaries stay in the grid',index()===63);
+doc.activeElement.click();check('last-cell edit retains focus',index()===63);
+check('input grid has one Tab entry',[...doc.querySelectorAll('#pixels button')].filter(x=>x.tabIndex===0).length===1);
+const response=doc.querySelectorAll('#response button')[7];response.focus();response.click();
+check('response activation retains the selected patch',doc.activeElement===doc.querySelectorAll('#response button')[7]&&doc.querySelector('#calculation').textContent.startsWith('Patch (2, 2)'));
+check('response grid has one Tab entry',[...doc.querySelectorAll('#response button')].filter(x=>x.tabIndex===0).length===1);
+const filter=doc.querySelector('#filter');filter.focus();filter.value='blur';filter.dispatchEvent(new frame.contentWindow.Event('change',{bubbles:true}));
+check('changing the filter does not steal control focus',doc.activeElement===filter);
+const lectureLoaded=new Promise(resolve=>frame.addEventListener('load',resolve,{once:true}));frame.src='../lecture.html#formulaDive';await lectureLoaded;
+const lecture=frame.contentDocument;
+const output=lecture.querySelectorAll('#convOutput button')[4];output.focus();output.click();
+check('optional convolution output retains keyboard focus',lecture.activeElement===lecture.querySelectorAll('#convOutput button')[4]&&lecture.activeElement.getAttribute('aria-pressed')==='true');
+const pixel=lecture.querySelector('#convImage input');pixel.focus();pixel.value='0.2';pixel.dispatchEvent(new frame.contentWindow.Event('input',{bubbles:true}));
+check('editing a convolution input keeps focus in its editor',lecture.activeElement===pixel);
+const next=lecture.querySelector('#convNext');next.focus();next.click();
+check('Next patch keeps keyboard focus on its persistent control',lecture.activeElement===next&&lecture.querySelector('#convTraceStatus').textContent.startsWith('Patch starts at zero-based (1, 2)'));
+document.querySelector('#status').textContent=`${passed} passed; ${failed} failed.`;
+</script></html>

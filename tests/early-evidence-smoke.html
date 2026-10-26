@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Early evidence application tests</title><script>
+// Like the existing confirmation rehearsal, run the real application in an
+// explicitly labeled test page. The clock and samples below are synthetic.
+(async()=>{
+ const html=await(await fetch('../index.html')).text();
+ let app=await(await fetch('../app.mjs')).text();
+ app=app.replace(/from '(\.\/[^']+)'/g,(_,path)=>"from '"+new URL('../'+path,location.href).href+"'");
+ const clock='const now=performance.now(), elapsed=now-round.start;';
+ if(!app.includes(clock)||!app.includes('requestAnimationFrame(tick);'))throw Error('App test hooks changed; update this rehearsal.');
+ app=app.replace(clock,'const now=window.evidenceTestNow, elapsed=now-round.start;').replace('requestAnimationFrame(tick);','/* Synchronous test clock; no animation scheduled. */');
+ app+=`
+ const checks=[];
+ function check(name,condition){checks.push({name,pass:Boolean(condition)});}
+ for(const fixture of [
+   {name:'ready',times:[600,700,800,900,1000],lock:1010},
+   {name:'too-few-frames',times:[900,1000],lock:1010},
+   {name:'stale-frames',times:[600,650,700,800],lock:1010},
+   {name:'short-window',times:[960,970,980,990],lock:1010},
+   {name:'missed-deadline',times:[600,700,800,900,1000],lock:1300}
+ ]){
+   $('quick').onclick();
+   samples=fixture.times.map(t=>({t,v:pacedMotion(t,'rock',false,9,700)}));
+   round={start:0,reveal:1300,cutoff:1000,lead:300,movementMs:700,duration:1300,holdEnd:2000,purpose:'test',simLabel:'rock',late:false,locked:false,x:null,guess:null,baseline:model.majority,lockTime:null,source:'simulation'};
+   window.evidenceTestNow=fixture.lock;tick();
+   check(fixture.name+' reason in live round',round.evidence.quality.reason===fixture.name);
+   check(fixture.name+' explanation shown',$('evidenceStatus').textContent===round.evidence.message);
+   window.evidenceTestNow=2000;tick();
+   check(fixture.name+' quality retained for export',tests.length===1&&tests[0].quality.reason===fixture.name);
+   check(fixture.name+' score boundary',fixture.name==='ready'?Boolean(tests[0].guess)&&evaluate(tests).n===1:tests[0].guess===null&&evaluate(tests).n===0);
+   if(fixture.name!=='ready')check(fixture.name+' recovery shown in result',$('decisionDetail').textContent===$('evidenceStatus').textContent);
+   dismissDecision();
+ }
+ clear();check('reset clears the previous evidence',$('evidenceStatus').textContent.startsWith('No round checked'));
+ const output=document.createElement('section');output.id='evidenceTestResults';
+ const title=document.createElement('h1');title.textContent=checks.filter(c=>c.pass).length+' passed; '+checks.filter(c=>!c.pass).length+' failed.';output.append(title);
+ const note=document.createElement('p');note.textContent='TEST ONLY: real application with a synthetic clock and synthetic observations. No camera requested. This verifies UI/scoring integration, not real-time or human prediction accuracy.';output.append(note);
+ for(const item of checks){const line=document.createElement('p');line.textContent=(item.pass?'PASS: ':'FAIL: ')+item.name;output.append(line);}
+ document.querySelector('main').prepend(output);output.scrollIntoView();
+ `;
+ document.open();document.write(html.replace('<head>','<head><base href="../">').replace('<script type="module" src="app.mjs"></'+'script>','<script type="module">'+app+'</'+'script>'));document.close();
+})().catch(error=>{document.body.textContent='FAIL: '+error.message;});
+</script></html>

@@ -1,0 +1,5 @@
+{
+  "easy": ["sun", "cat", "pizza", "tree", "house", "fish", "umbrella", "apple", "cup", "boat", "star", "flower", "glasses", "ice cream", "balloon", "key", "shoe", "snowman", "heart", "kite"],
+  "medium": ["sea", "camping", "birthday party", "traffic jam", "rainy day", "space station", "treasure island", "roller coaster", "volcano", "underwater city", "farm", "airport", "robot chef", "music festival", "haunted house", "surfing", "jungle", "pirate ship", "recycling", "video call"],
+  "hard": ["ChatGPT", "artificial intelligence", "time travel", "gravity", "the internet", "machine learning", "a computer dreaming", "virtual reality", "a robot learning to paint", "privacy", "algorithm", "climate change", "teamwork", "a password", "information overload", "a glitch in reality", "an invisible friend", "a rumor spreading", "a smart home", "a camera recognizing a hand"]
+}

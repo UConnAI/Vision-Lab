@@ -1,0 +1,36 @@
+{
+  "title": "Copy of example2.ipynb",
+  "url": "https://colab.research.google.com/drive/1EPwOZCJYfa3voJ5grgPL21hqf02zUL86",
+  "cells": [
+    {
+      "index": 0,
+      "type": "code",
+      "source": "import cv2\nimport os\n# python 處理 csv 的套件\nimport csv\n# python deque 使用的套件\nimport queue"
+    },
+    {
+      "index": 1,
+      "type": "code",
+      "source": "# 目的資料夾\ndirectory2 = './example2/'\n\n# 下載影片檔案 並將它命名為 example.mp4\n!gdown --id '1zrnS_jKxJmLQBGOdbtVSGwT5g0bOuvUQ' --output example.mp4\n# 下載csv檔案 並將它命名為 example.csv\n!gdown --id '1H70EGMDRrodZfYTpx1tP1VrBOZmWBL1K' --output example.csv\n\n# 如果沒有該資料夾則建立\nif not os.path.exists(directory2):\n    os.makedirs(directory2)"
+    },
+    {
+      "index": 2,
+      "type": "code",
+      "source": "# 軌跡視覺化長度\nTRAJECTORY_SIZE = 8\n\n# 讀取CSV檔案\nframes = [] # 第幾個Frame : 0 1 2 ...\nvisibility = [] # 有無辨識到球 : 0 1 1 0 1 1 ...\nx = [] # 球的x座標 (恆為整數) : 545 550 560 ...\ny = [] # 球的y座標 (恆為整數) : 230 236 242 ..."
+    },
+    {
+      "index": 3,
+      "type": "code",
+      "source": "with open('example.csv', newline='') as csvfile:\n    rows = csv.DictReader(csvfile) # 將第一列當作欄位的名稱，將往後的每一列轉成Dictionary\n    \n    # 讀取每一列(row)\n    for row in rows:\n        frames.append(int(row['Frame'])) # 將欄位 Frame 的值加到 frames\n        visibility.append(int(row['Visibility'])) # 將欄位 的值Visibility 加到 visibility\n        x.append(int(row['X'])) # 將欄位 X 的值加到 x\n        y.append(int(row['Y'])) # 將欄位 Y 的值加到 y"
+    },
+    {
+      "index": 4,
+      "type": "code",
+      "source": "# 讀取範例影片\nvideo = cv2.VideoCapture('example.mp4')\n\n# 記錄目前處理到第幾幀(從0開始)\ncurrentFrame = 0\n\n# 建立一個deque (一種資料結構，支援前後新增刪除資料，可以取中間索引的值)\nq = queue.deque()\n\n# 從左側塞入長度為2的空資料\nfor i in range(0,TRAJECTORY_SIZE):\n    q.appendleft(None)"
+    },
+    {
+      "index": 5,
+      "type": "code",
+      "source": "while(True):\n    # 從影片讀取一張相片 (Frame)\n    success, image = video.read()\n\n    # 如果讀取不到Frame則離開 (代表影片讀取終了)\n    if not success: \n        break\n\n    if visibility[currentFrame] != 0: # 如果visibility不為0代表有抓到羽球位置，deque塞入羽球座標x y\n        q.appendleft((x[currentFrame],y[currentFrame]))\n        q.pop()\n    else: # 如果visibility為0代表沒有抓到羽球位置，deque塞入空資料\n        q.appendleft(None)\n        q.pop()\n\n    # 將先前2個Frame的羽球座標畫入圖片\n    for i in range(0,TRAJECTORY_SIZE):\n        if q[i] is not None:\n            draw_x = q[i][0] # 欲畫之羽球中心座標x (以圖片左上角為原點向右)\n            draw_y = q[i][1] # 欲畫之羽球中心座標y (以圖片左上角為原點向下)\n            # 在image上(x,y)的位置畫上大小為4，顏色(B,G,R)為紅色(0,0,255)，線條寬度為-1(-1代表實心)的圓\n            cv2.circle(image,(draw_x, draw_y), 4, (0,0,255), -1)\n\n    # 欲輸出之圖片檔案名稱 (frame0001.jpg, frame0002.jpg, frame0003.jpg ......)\n    filename = os.path.join(directory2, 'frame{:0>4d}.jpg'.format(currentFrame))\n\n    # 將相片寫入圖片檔案中\n    cv2.imwrite(filename, image)\n    \n    print('將 Frame {} 輸出至檔案 {}'.format(currentFrame, filename))\n\n    # 將Frame Index值加一\n    currentFrame = currentFrame + 1\n\n# 釋放影片資源\nvideo.release()"
+    }
+  ]
+}

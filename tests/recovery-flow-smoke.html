@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Camera-free recovery integration checks</title><body><p id="boot" role="status">Preparing artificial inputs…</p><script>
+// Runs the real fifth-tab controller with an artificial canvas stream and a
+// mock model loader. Never calls the real getUserMedia or loads a hand model.
+(async()=>{
+ const html=await(await fetch('../index.html')).text();
+ let app=await(await fetch('../app.mjs')).text();
+ const loader="import {loadVision} from './model-loader.mjs';";
+ if(!app.includes(loader))throw Error('Model-loader test hook changed.');
+ app=app.replace(loader,`let failModel=true, closeCount=0, modelAttempts=0;
+ async function loadVision(){modelAttempts++;if(failModel)throw Error('TEST ONLY: local model unavailable');return {FilesetResolver:{forVisionTasks:async()=>({})},GestureRecognizer:{createFromOptions:async()=>({recognizeForVideo:()=>({gestures:[],landmarks:[],worldLandmarks:[]}),close(){closeCount++;}})}};}`);
+ app=app.replace(/from '(\.\/[^']+)'/g,(_,path)=>"from '"+new URL('../'+path,location.href).href+"'");
+ app+=`
+ const checks=[];function check(name,pass){checks.push({name,pass:Boolean(pass)});}
+ const media={enumerateDevices:async()=>[]};
+ Object.defineProperty(navigator,'mediaDevices',{configurable:true,value:media});
+ for(const errorName of ['NotAllowedError','NotFoundError','NotReadableError']){
+   media.getUserMedia=async()=>{throw Object.assign(Error('TEST ONLY: '+errorName),{name:errorName});};
+   await startCamera();
+   check(errorName+' reports specific failure',!$('cameraError').hidden&&$('cameraError').textContent.includes(errorName));
+   check(errorName+' leaves retry usable',!$('camera').disabled&&!loading&&stream===null);
+   $('quick').onclick();
+   check(errorName+' can switch to labeled simulation',$('modeTag').textContent==='SIMULATION'&&model?.provenance==='artificial');
+   clear();
+ }
+ delete media.getUserMedia;await startCamera();
+ check('unavailable capture API explains recovery',$('cameraError').textContent.includes('UnsupportedError')&&!$('camera').disabled);
+ const artificial=document.createElement('canvas');artificial.width=64;artificial.height=48;
+ const paint=setInterval(()=>artificial.getContext('2d').fillRect(0,0,64,48),40);
+ let latest;
+ media.getUserMedia=async()=>{latest=artificial.captureStream(25);return latest;};
+ await startCamera();
+ check('model failure keeps artificial preview attached',Boolean(stream)&&$('video').srcObject===latest&&!trackingReady);
+ check('model failure names retry and prevents collection',!$('retryTracker').hidden&&!$('retryTracker').disabled&&$('round').disabled&&$('cameraError').textContent.includes('local model unavailable'));
+ await $('retryTracker').onclick();
+ check('repeated failed retry stays recoverable',modelAttempts===2&&!loading&&!$('retryTracker').disabled);
+ failModel=false;await $('retryTracker').onclick();
+ check('successful retry recovers without new stream',trackingReady&&$('video').srcObject===latest&&$('cameraError').hidden);
+ $('stopTop').onclick();
+ check('stop releases artificial track and detaches preview',latest.getTracks().every(t=>t.readyState==='ended')&&$('video').srcObject===null);
+ $('stopTop').onclick();
+ check('repeated stop leaves clean controls',!$('camera').disabled&&!loading&&stream===null&&!trackingReady);
+ // A stop while the permission promise is unresolved must dispose the late
+ // artificial stream, rather than attaching it after the learner cancelled.
+ let release;media.getUserMedia=()=>new Promise(resolve=>{release=resolve;});
+ const pendingStart=startCamera();$('stopTop').onclick();
+ const late=artificial.captureStream(25);release(late);await pendingStart;
+ check('stop during pending acquisition disposes late stream',late.getTracks().every(t=>t.readyState==='ended')&&stream===null&&$('video').srcObject===null);
+ clearInterval(paint);clear();
+ const result=document.createElement('section');result.id='recoveryTestResults';
+ const heading=document.createElement('h1');heading.textContent=checks.filter(c=>c.pass).length+' passed; '+checks.filter(c=>!c.pass).length+' failed.';result.append(heading);
+ const note=document.createElement('p');note.textContent='TEST ONLY: synthetic camera failures, an artificial canvas stream, and a mock detector. No camera permission, physical camera, microphone, recording, or model accuracy tested.';result.append(note);
+ for(const c of checks){const line=document.createElement('p');line.textContent=(c.pass?'PASS: ':'FAIL: ')+c.name;result.append(line);}
+ document.querySelector('main').prepend(result);result.scrollIntoView();
+ `;
+ document.open();document.write(html.replace('<head>','<head><base href="../">').replace('<script type="module" src="app.mjs"></'+'script>','<script type="module">'+app+'</'+'script>'));document.close();
+})().catch(e=>{document.body.textContent='FAIL: '+e.message;});
+</script></body></html>

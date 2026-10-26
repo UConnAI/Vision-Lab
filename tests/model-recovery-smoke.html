@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Module recovery smoke test</title><body><h1>Module recovery smoke test</h1><p>Intentionally rejects the first module import, retries the real local module, then runs the actual bundled model on a blank canvas. No camera requested.</p><p id="status" role="status">Loading…</p><canvas id="image" width="320" height="240"></canvas><script type="module">
+import {loadVision} from '../model-loader.mjs';
+const status=document.getElementById('status'),canvas=document.getElementById('image');
+try{
+  let attempts=0;
+  const {FilesetResolver,GestureRecognizer}=await loadVision({importer:async url=>{if(++attempts===1)throw new TypeError('Intentional first-import failure');return import(url);}});
+  if(attempts!==2)throw new Error('Expected recovery on second import');
+  canvas.getContext('2d').fillRect(0,0,320,240);
+  const files=await FilesetResolver.forVisionTasks('../vendor/wasm');
+  const model=await GestureRecognizer.createFromOptions(files,{baseOptions:{modelAssetPath:'../vendor/gesture_recognizer.task',delegate:'CPU'},runningMode:'VIDEO',numHands:1});
+  const r=model.recognizeForVideo(canvas,performance.now());
+  if(r.landmarks.length!==0)throw new Error('Unexpected hand on blank input');
+  model.close();status.textContent='PASS: recovered after intentional first-import failure; bundled WASM and model loaded; blank-frame VIDEO inference returned zero hands. This does not test real hand tracking.';
+}catch(e){status.textContent='FAIL: '+e.message;}
+</script></body></html>

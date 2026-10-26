@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Learning guide browser tests</title>
+<h1>Learning guide browser tests</h1><p id="result" role="status">Running…</p><ol id="results"></ol><div id="fixtures" hidden></div>
+<script type="module">
+import {mountGuide,readProgress} from '../learning-guide.mjs';
+const lines=document.querySelector('#results');let passed=0,failed=0;
+function assert(condition,message){if(!condition)throw Error(message);}
+function test(name,run){const li=document.createElement('li');try{run();passed++;li.textContent='PASS: '+name;}catch(e){failed++;li.textContent='FAIL: '+name+' — '+e.message;}lines.append(li);}
+const data=new Map(),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)};
+function fixture(key='lecture',store=storage){const section=document.createElement('section');document.querySelector('#fixtures').append(section);mountGuide(section,key,store);return section;}
+const find=(mount,text)=>[...mount.querySelectorAll('button')].find(button=>button.textContent===text);
+test('mounts, navigates, and resets expected-output disclosures between steps',()=>{
+ const mount=fixture();assert(find(mount,'Previous step').disabled,'previous enabled at first step');
+ mount.querySelector('.guideStep details').open=true;find(mount,'Next step').click();
+ assert(mount.querySelector('select').value==='1','next did not advance');
+ assert(!mount.querySelector('.guideStep details').open,'answer leaked into next step');
+ find(mount,'Next step').click();find(mount,'Next step').click();assert(find(mount,'Next step').disabled,'next enabled at last step');
+ find(mount,'Previous step').click();assert(mount.querySelector('select').value==='2','previous did not work');
+});
+test('checklist and notes survive remount without interpreting markup',()=>{
+ const mount=fixture();const check=mount.querySelector('input[type=checkbox]');check.click();
+ const notes=mount.querySelector('textarea');notes.value='<img src=x onerror=alert(1)>\nobservation';notes.dispatchEvent(new Event('input'));
+ const again=fixture();assert(again.querySelector('textarea').value===notes.value,'notes lost');
+ assert(!again.querySelector('img'),'markup was interpreted');assert(again.querySelector('input').checked,'completion lost');
+ assert(readProgress(storage,'lecture',4).done[2],'wrong step completed');
+});
+test('clear has a cancel path and affects only its own route',()=>{
+ const other=fixture('deep');other.querySelector('textarea').value='keep this';other.querySelector('textarea').dispatchEvent(new Event('input'));
+ const mount=fixture();find(mount,'Clear this guide’s checklist and notes').click();find(mount,'Keep my notes').click();
+ assert(mount.querySelector('textarea').value.includes('observation'),'cancel erased notes');
+ find(mount,'Clear this guide’s checklist and notes').click();find(mount,'Clear my guide notes').click();
+ assert(mount.querySelector('textarea').value==='','clear failed');assert(mount.querySelector('select').value==='0','step not reset');
+ assert(readProgress(storage,'deep',4).notes==='keep this','other guide erased');
+});
+test('blocked storage shows an honest warning and still allows in-page notes',()=>{
+ const mount=fixture('home',{getItem(){throw Error('blocked');},setItem(){throw Error('blocked');}});
+ assert(mount.querySelector('.guidePersistence').textContent.includes('unavailable'),'no warning');
+ mount.querySelector('textarea').value='local note';mount.querySelector('textarea').dispatchEvent(new Event('input'));
+ find(mount,'Next step').click();assert(mount.querySelector('textarea').value==='local note','in-page notes lost');
+});
+test('temporary storage failure recovers honestly on a later successful save',()=>{
+ let blocked=true;const values=new Map();
+ const mount=fixture('playground',{getItem:k=>values.get(k),setItem(k,v){if(blocked)throw Error('quota');values.set(k,v);}});
+ const notes=mount.querySelector('textarea');notes.value='keep this through recovery';notes.dispatchEvent(new Event('input'));
+ assert(mount.querySelector('.guidePersistence').textContent.includes('unavailable'),'missing storage warning');
+ blocked=false;find(mount,'Next step').click();
+ assert(!mount.querySelector('.guidePersistence').textContent.includes('unavailable'),'stale storage warning after recovery');
+ assert(JSON.parse([...values.values()][0]).notes===notes.value,'recovery lost the in-page note');
+});
+test('capture appends current readings without losing an observation or overflowing notes',()=>{
+ const mount=fixture('final');const status=document.createElement('p');status.id='modeTag';status.textContent='SIMULATION';document.body.append(status);
+ const notes=mount.querySelector('textarea');notes.value='My prediction first';notes.dispatchEvent(new Event('input'));
+ find(mount,'Add current settings and readings').click();assert(notes.value.startsWith('My prediction first'),'prior note lost');assert(notes.value.includes('Mode: SIMULATION'),'actual mode not captured');
+ notes.value='x'.repeat(12000);notes.dispatchEvent(new Event('input'));find(mount,'Add current settings and readings').click();
+ assert(notes.value.length===12000,'full notes overwritten');assert(mount.textContent.includes('not enough room'),'missing capacity feedback');
+});
+test('self-check feedback requires a choice, changes with the answer, and does not grade the checklist',()=>{
+ const mount=fixture('home');const reveal=find(mount,'Check my reasoning');
+ assert(reveal.disabled,'feedback enabled without a choice');
+ const before=mount.querySelector('.guideProgress').textContent;
+ const radios=mount.querySelectorAll('input[type=radio]');radios[0].click();reveal.click();
+ assert(mount.querySelector('.guideFeedback').textContent.includes('invent an observation'),'missing explanation for interpolation');
+ radios[1].click();assert(!mount.querySelector('.guideFeedback').textContent,'stale explanation after changing answer');reveal.click();
+ assert(mount.querySelector('.guideFeedback').textContent.includes('video still writes frame 12'),'missing full-video explanation');
+ assert(mount.querySelector('.guideProgress').textContent===before,'self-check changed completion or grade');
+});
+document.querySelector('#result').textContent=`${passed} passed; ${failed} failed.`;
+</script></html>

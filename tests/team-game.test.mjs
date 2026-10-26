@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createMatch,finishTurn,nextTurn,matchResult} from '../team-game.mjs';
+test('one group shares a goal and finishes without a competing winner',()=>{const m=createMatch(1,3);for(const correct of [true,false,true]){m.phase='playing';finishTurn(m,correct);nextTurn(m);}assert.equal(m.phase,'complete');assert.equal(matchResult(m),'Together: 2/3 guessed · crew goal reached!');});
+test('a correct turn scores once and cannot be scored again',()=>{const m=createMatch();m.phase='playing';assert.equal(finishTurn(m,true),true);assert.equal(finishTurn(m,true),false);assert.deepEqual(m.scores,[1,0]);});
+test('each team gets equal turns and match ends after configured rounds',()=>{const m=createMatch(3,2),order=[];for(let i=0;i<6;i++){order.push(m.turn%m.teams);m.phase='playing';finishTurn(m,i%2===0);nextTurn(m);}assert.deepEqual(order,[0,1,2,0,1,2]);assert.equal(m.phase,'complete');assert.equal(nextTurn(m),false);assert.equal(matchResult(m),'Team 1 + Team 2 + Team 3 tie with 1 point.');});
+test('pass gives zero and paused turns can be judged',()=>{const m=createMatch();m.phase='paused';finishTurn(m,false);nextTurn(m);m.phase='paused';finishTurn(m,true);assert.equal(matchResult(m),'Team 2 wins with 1 point.');});

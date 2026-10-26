@@ -1,0 +1,2 @@
+# Optional: only needed to run tiny_cnn.py locally. Browser training needs no pip install.
+torch>=2.5,<3
