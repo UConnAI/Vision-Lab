@@ -23,3 +23,5 @@ Python examples are in `python/` and `take-home-code/`. Preserve vendor license 
 ## Validation and deployment
 
 Run `python check_local_links.py` and `python scripts/build_site.py`. The latter creates an allow-checked `_site/` artifact without tests, build tools or instructor material. GitHub Actions deploys that artifact to Pages on pushes to main.
+
+The club source and Pages artifact contain participant material only. Private presenter walkthroughs and instructor review notes are not included.
